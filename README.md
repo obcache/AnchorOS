@@ -1,119 +1,42 @@
 # AnchorOS
 
-**AnchorOS** is a modular governance layer for ChatGPT sessions.  
-It transforms raw session sprawl into **structured, portable, and governable capsules**, enabling consistent and repeatable workflows.  
+## Core Idea
+AnchorOS provides a governed capsule-based system for persisting, managing, and orchestrating ChatGPT session data.
+
+## 🧩 The Problem & Why AnchorOS
+
+Modern ChatGPT sessions are powerful, but they suffer from three persistent issues:
+
+1. **Session Ephemerality**  
+   - Each new conversation begins as a blank slate.  
+   - Hard-won heuristics, context, and conventions are lost unless manually restated.  
+
+2. **Unbounded Growth**  
+   - Research sessions become extremely heavy in tokens.  
+   - Exploratory context lingers long after it is needed, bloating session state.  
+
+3. **Lack of Governance**  
+   - No shared protocol for how to structure, load, or manage custom instructions.  
+   - Each session is an ad-hoc experiment rather than an operational system.  
 
 ---
 
-## ✨ Core Idea
+## ✅ The AnchorOS Solution
 
-- **Capsules**: Portable documents that encapsulate rules, heuristics, or workflows.  
-- **Modules**: General plug-in units. Capsules are one type of module (others may follow: `workflow:`, `adapter:`, `theme:`, etc.).  
-- **Index**: Tracks all current capsule versions and filenames.  
-- **Bootstrap**: Ensures required capsules load and governs startup/rollback.  
-- **Protocol**: Defines the rules for capsule minting, backups, upgrades, and installs.  
+AnchorOS introduces a **governed, modular layer** on top of ChatGPT:
 
----
+- **Capsules** externalize knowledge → portable, versioned, and lightweight.  
+- **Bootstrap** ensures critical capsules always load consistently at startup.  
+- **Protocol** governs minting, backups, upgrades, and rollback.  
+- **Index** keeps capsule references in sync across versions.  
+- **Backups** ensure all capsules are re-rendered and archived for consistency.  
 
-## 🚀 Getting Started
+**Result:**  
+- Sessions remain **light and predictable** (~25–30k token bootstrap payload).  
+- Learned behaviors and heuristics persist **outside session ephemerality**.  
+- Operators can **install, list, and manage capsules** like modules in a true OS.  
 
-1. Clone this repository.  
-2. Download the bootstrap and core capsules from the latest release or the `capsules/` directory.  
-3. In session, issue:  
+⚓ AnchorOS = *Govern your ChatGPT session data.*  
 
-```bash
-anchor install capsule:bootstrap
-```
-
-If successful, you’ll see:  
-```bash
-Bootstrap initiation successful: AnchorOS is now active.
-```
-
----
-
-## 📦 Bootstrap Payload
-
-When AnchorOS initializes, it loads the following capsules:
-
-- **Spec v0.8**  
-- **Protocol v6.3**  
-- **Index v13**  
-- **ModuleRegistry v0.2**  
-- **Bootstrap v0.4**  
-- **GlobalTaxonomy v1.1**  
-- **Lexicon v1.1**  
-- **Guide v0.2**  
-- **Domain capsules**: Teaching v1.0, Parenting v1.0, Psychology v1.0  
-
-**Approximate weight**: ~25–30k tokens  
-(≈ short novel, 150–180 pages of text).  
-
----
-
-## 🔄 Session Lifecycle
-
-```
-[ Research Session ]
-      ⬇
- [ Mint Capsules ]
-      ⬇
-[ Update Index + Protocol ]
-      ⬇
-[ Backup Snapshot ]
-      ⬇
-[ Archive/Delete Research Session ]
-      ⬇
-[ Bootstrap New Session ]
-      ⬇
-[ Governed Session: Lean + Reliable ]
-```
-
-- Research sessions are **heavy**: lots of exploratory tokens.  
-- Capsules externalize that knowledge into portable artifacts.  
-- Once minted, the research session can be deleted, reducing weight.  
-- Bootstrap reloads only what’s needed → predictable payload each time.  
-
----
-
-## ⚙️ Commands
-
-### Installed Capsules
-```bash
-anchor capsules list
-```
-→ Lists all installed capsules with version and load timestamp.  
-
-### Available Capsules
-```bash
-anchor capsules list available
-```
-→ Lists all capsules available per the Index.  
-
-### Install Capsule
-```bash
-anchor install capsule:psychology
-```
-- If no namespace is provided, `capsule:` is assumed.  
-- AnchorOS provides the capsule URL and requires you to paste it back to confirm download.  
-
-### Backup
-```bash
-anchor backup
-```
-- Re-renders all capsules individually.  
-- Produces a timestamped archive (`ANCHOR_ProjectBackup_...zip`).  
-- Always updates the Index.  
-
----
-
-## 📖 Philosophy
-
-AnchorOS emphasizes:  
-- **Clarity**: everything is explicit, documented, and versioned.  
-- **Governance**: sessions follow the same rules every time.  
-- **Lightweight ops**: once capsules exist, session payloads remain lean.  
-
----
-
-⚓ AnchorOS = Govern your ChatGPT session data.  
+## Getting Started
+Clone the repository and load the bootstrap capsules into your session.
