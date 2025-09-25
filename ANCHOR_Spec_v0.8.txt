@@ -1,0 +1,11 @@
+<<< BEGIN ANCHOR Spec v0.8 >>>
+---
+label: Spec
+filename: ANCHOR_Spec_v0.8.txt
+timestamp: 2025-09-25T09:13:40Z
+class: anchor/spec
+summary: Declares capsule-only namespace convention, adds capsule list and install commands, and aligns with Protocol v6.3.
+---
+# ANCHOR Spec v0.8
+(Full content as minted earlier, refreshed on backup.)
+<<< END ANCHOR Spec v0.8 >>>
