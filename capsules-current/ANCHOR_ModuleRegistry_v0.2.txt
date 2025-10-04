@@ -1,0 +1,2 @@
+=== ANCHOR_ModuleRegistry_v0.2.txt ===
+This is a rendered representation of ANCHOR_ModuleRegistry_v0.2.txt for AnchorOS v1.5.

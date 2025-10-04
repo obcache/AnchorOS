@@ -1,0 +1,2 @@
+=== ANCHOR_Esoterica_v1.0.txt ===
+This is a rendered representation of ANCHOR_Esoterica_v1.0.txt for AnchorOS v1.5.
