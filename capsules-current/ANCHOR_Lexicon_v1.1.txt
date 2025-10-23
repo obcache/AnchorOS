@@ -1,2 +1,0 @@
-=== ANCHOR_Lexicon_v1.1.txt ===
-This is a rendered representation of ANCHOR_Lexicon_v1.1.txt for AnchorOS v1.5.

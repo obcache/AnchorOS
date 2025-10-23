@@ -1,0 +1,36 @@
+ANCHOR Capsule Handshake v1.0
+------------------------------------------------------------
+Capsule: ANCHOR_Guide_v0.3.txt
+Version: v0.3
+Role: core
+Expected-Caller: protocol
+Expected-Sequence: 7-guide
+
+if (caller != "protocol") or (caller_sequence != "7-guide"):
+    reject_ingest("Handshake violation: unauthorized or out-of-sequence load.")
+else:
+    confirm_ingest("Handshake verified: capsule accepted.")
+------------------------------------------------------------
+
+# ANCHOR_Guide
+
+## v0.3 Overview
+AnchorOS turns session sprawl into governed, portable capsules.
+
+## Statement of Intent
+Protocols are scaffolding: preserve integrity where essential,
+leave maximum freedom where creativity and synthesis thrive.
+
+## Commands
+| anchor init            # strict by default; 'fast' optional
+| anchor capsule commit base
+| anchor capsule commit all
+| anchor snapshot        # alias of commit all
+| anchor capsule get <name>
+| anchor capsule get all
+| anchor stop | anchor quit
+| anchor help
+
+## Workflows
+- Base install vs Snapshot separation.
+- Manifest provides CLI and completeness check.

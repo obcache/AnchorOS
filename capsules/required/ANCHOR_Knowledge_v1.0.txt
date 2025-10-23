@@ -1,0 +1,24 @@
+ANCHOR Capsule Handshake v1.0
+------------------------------------------------------------
+Capsule: ANCHOR_Knowledge_v1.0.txt
+Version: v1.0
+Role: core
+Expected-Caller: protocol
+Expected-Sequence: 8-knowledge
+
+if (caller != "protocol") or (caller_sequence != "8-knowledge"):
+    reject_ingest("Handshake violation: unauthorized or out-of-sequence load.")
+else:
+    confirm_ingest("Handshake verified: capsule accepted.")
+------------------------------------------------------------
+
+# ANCHOR_Knowledge
+
+## v1.0 Purpose
+Semi-volatile → durable bridge for session-wide concepts
+that must persist precisely across sessions.
+
+## Included Concepts
+- Bias-Hygiene: techniques to notice and reduce cognitive bias.
+- Protocol adherence heuristics.
+- Session-wide truths that improve clarity and collaboration.

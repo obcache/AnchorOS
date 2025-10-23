@@ -1,2 +1,0 @@
-=== ANCHOR_Index_v13.txt ===
-This is a rendered representation of ANCHOR_Index_v13.txt for AnchorOS v1.5.

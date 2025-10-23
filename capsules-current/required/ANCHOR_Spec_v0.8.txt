@@ -1,2 +1,0 @@
-=== ANCHOR_Spec_v0.8.txt ===
-This is a rendered representation of ANCHOR_Spec_v0.8.txt for AnchorOS v1.5.
