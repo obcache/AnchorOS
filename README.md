@@ -1,47 +1,5 @@
 # AnchorOS
 
-## Why AnchorOS?
-Govern your ChatGPT session data with portable, versioned capsules.
-
-## Statement of Intent
-Adaptability is a feature, not a flaw. Strictness where safety
-and integrity are non-negotiable; flexibility where meaning and
-creativity thrive.
-
-## Getting Started
-Upload BaseInstall bundle, then run:
-| anchor init
-
-## Commands
-...
-| anchor init            # strict by default; 'fast' optional
-...
-...
-| anchor capsule commit base
-...
-...
-| anchor capsule commit all
-...
-...
-| anchor snapshot        # alias of commit all
-...
-...
-| anchor capsule get <name>
-...
-...
-| anchor capsule get all
-...
-...
-| anchor stop | anchor quit
-...
-...
-| anchor help
-...
-
-
-
-_Last built: 2025-10-07T19:26:27Z_# AnchorOS
-
 **AnchorOS** is a modular governance layer for ChatGPT sessions.  
 It transforms raw session sprawl into **structured, portable, and governable capsules**, enabling consistent and repeatable workflows.  
 
@@ -91,11 +49,6 @@ AnchorOS introduces a **governed, modular layer** on top of ChatGPT:
 - Operators can **install, list, and manage capsules** like modules in a true OS.  
 
 ⚓ AnchorOS = *Govern your ChatGPT session data.*  
-
-## Statement of Intent
-Adaptability is a feature, not a flaw. Strictness where safety
-and integrity are non-negotiable; flexibility where meaning and
-creativity thrive.
 
 ---
 
