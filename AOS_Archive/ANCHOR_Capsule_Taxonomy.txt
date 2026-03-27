@@ -1,0 +1,47 @@
+<<< BEGIN ANCHOR TaxonomyCapsule v0.2 >>>
+---
+label: TaxonomyCapsule
+filename: ANCHOR_Capsule_Taxonomy.txt
+timestamp: 2025-09-20T23:59:00Z
+class: anchor/capsule
+summary: Compact capsule defining Anchor-root taxonomy, subclasses, and terminology governance; expandable in future revisions.
+changelog:
+  - 2025-09-20: v0.2 added Terminology Governance principle.
+  - 2025-09-20: v0.1 initial creation from Jewel→Anchor migration.
+---
+
+# Anchor Taxonomy Capsule (v0.2)
+
+**Root namespace:** Anchor  
+- Structural, neutral, stable.  
+- All artifacts use `ANCHOR_*` prefix.
+
+### Subclasses
+- **anchor/capsule** — compact low-loss summaries (legacy: jewel).  
+- **anchor/marker** — non-inflating references (poetic alias: tombstone).  
+- **anchor/protocol** — workflow rules, guardrails.  
+- **anchor/spec** — schemas and conventions.  
+- **anchor/index** — catalogs, registries.  
+- **anchor/log** — session logs, ingestion reports.  
+- **anchor/prompter** — guided forms, structured prompting.  
+- **anchor/conceptual** — symbolic/poetic anchors (alias: metaphor).  
+- **anchor/study** — hypotheses, test plans, grant docs (alias: research).
+
+### Principles
+- **Neutral root** (anchor = context pin).  
+- **Stable filenames** (Git-friendly, no timestamps).  
+- **YAML header holds timestamp + class.**  
+- **Legacy terms** mapped via `legacy_terms` for continuity.
+
+### Terminology Governance
+- Field-standard terminology takes precedence in filenames, headers, and protocol references.  
+- Poetic or ad-hoc terms may be included in `legacy_terms` or `alias` fields for continuity.  
+- **Improvised metaphors should not be promoted to root namespace unless explicitly elevated by author intent.**  
+- Root namespace (`Anchor`) remains neutral and structural. Subclasses use widely recognizable terms.  
+- Exception: in core creative work, author may elevate metaphors to primary labels, with explicit note in `changelog`.
+
+### Migration Note
+- “jewel” = `anchor/capsule`  
+- “tombstone” = `anchor/marker`
+
+<<< END ANCHOR TaxonomyCapsule v0.2 >>>

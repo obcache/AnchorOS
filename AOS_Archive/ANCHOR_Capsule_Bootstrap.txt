@@ -1,0 +1,57 @@
+<<< BEGIN ANCHOR BootstrapCapsule v0.1 >>>
+---
+label: BootstrapCapsule
+filename: ANCHOR_Capsule_Bootstrap.txt
+timestamp: 2025-09-21T00:30:00Z
+class: anchor/capsule
+summary: Minimal bootstrap sequence of anchors required for initialization; ensures proper load order for comprehension and compatibility.
+changelog:
+  - 2025-09-21: v0.1 initial creation.
+---
+
+# Anchor Bootstrap Capsule (v0.1)
+
+**Purpose:**  
+Defines the canonical load order of foundational anchors. Any system ingesting the Anchor ecosystem should process these first, in sequence, to guarantee full comprehension and compatibility.
+
+---
+
+### Load Order
+
+1. **ANCHOR_Protocol (v5.1+)**  
+   - Governs retrieval-aware minting, terminology, metadata rules.  
+   - Must load first: establishes context boundary and validation rules.
+
+2. **ANCHOR_Spec (v0.2+)**  
+   - Schema and taxonomy definitions (Anchor-root, subclasses, terminology governance).  
+   - Relies on Protocol for integrity rules.  
+   - Enables consistent parsing and indexing of all subsequent anchors.
+
+3. **ANCHOR_Index**  
+   - Canonical catalog / registry of all anchors.  
+   - Populated according to Spec rules.  
+   - Acts as central navigation map for capsules, markers, and logs.
+
+4. **ANCHOR_TaxonomyCapsule (v0.2+)**  
+   - Compact reference of Anchor-root taxonomy.  
+   - Useful for lightweight re-initialization and human-readable overview.  
+   - Not strictly required for machine parsing (Spec is sufficient), but increases interpretability.
+
+5. **ANCHOR_GrantProtocol (Study)**  
+   - Hypotheses, test plans, and grant-facing workflows.  
+   - Depends on Protocol + Spec for comprehension.  
+   - Indexed for retrieval of hypotheses and experimental structures.
+
+---
+
+### Notes
+- All other anchors (logs, prompters, conceptuals, etc.) are optional and can be loaded ad hoc.  
+- Bootstrap Capsule ensures minimum viable state to parse, retrieve, and extend ecosystem consistently.  
+- Sequence is strict: each depends on the one before.  
+
+# [Commented out: GitHub automation hooks]
+# - Once repository access is available, this capsule can act as manifest for automation.
+# - A GitHub Action or script could parse this file, pull listed anchors, and load them in order.
+# - Disabled here for archival neutrality.
+
+<<< END ANCHOR BootstrapCapsule v0.1 >>>

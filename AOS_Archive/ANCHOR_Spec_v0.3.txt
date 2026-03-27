@@ -1,0 +1,27 @@
+ANCHOR Capsule Handshake v1.0
+------------------------------------------------------------
+Capsule: ANCHOR_Spec_v0.3.txt
+Version: v0.3
+Role: core
+Expected-Caller: bootstrap
+Expected-Sequence: 2-spec
+
+if (caller != "bootstrap") or (caller_sequence != "2-spec"):
+    reject_ingest("Handshake violation: unauthorized or out-of-sequence load.")
+else:
+    confirm_ingest("Handshake verified: capsule accepted.")
+------------------------------------------------------------
+
+# ANCHOR_Spec
+
+## Governance & Clarity (v0.3)
+All AnchorOS-governed workflow responses MUST begin with a provenance marker.
+Format: [ANCHOROS:<context>] <response>
+Contexts: CORE | CAPSULE | PROTOCOL | INFO
+Omission of this marker denotes free-context conversational output.
+
+
+## Capsule Integrity
+- Each capsule SHALL include a handshake header (except the manifest).
+- Init order governed by Bootstrap; manifest is BIOS-level authority.
+- Hash tokens (SHA256) SHOULD be recorded at commit and verified at init.

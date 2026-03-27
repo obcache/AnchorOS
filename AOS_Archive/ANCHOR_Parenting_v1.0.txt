@@ -1,0 +1,11 @@
+<<< BEGIN ANCHOR Parenting v1.0 >>>
+---
+label: Parenting
+filename: ANCHOR_Parenting_v1.0.txt
+timestamp: 2025-09-25T09:13:40Z
+class: anchor/capsule
+summary: Domain capsule: parenting heuristics and workflows.
+---
+# ANCHOR Parenting v1.0
+(Full content as minted earlier, refreshed on backup.)
+<<< END ANCHOR Parenting v1.0 >>>

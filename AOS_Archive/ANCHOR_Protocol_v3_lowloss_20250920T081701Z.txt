@@ -1,0 +1,96 @@
+<<< BEGIN JEWEL Protocol 2025-09-20T08:17:01Z >>>
+---
+label: Protocol
+filename: ANCHOR_Protocol_v3_lowloss_20250920T081701Z.txt
+timestamp: 2025-09-20T08:17:01Z
+type: workflow
+summary: Retriever-aware jewel minting protocol with OCR freshness rules and session-summary policy.
+changelog:
+  - 2025-09-20T08:17:01Z: v3 added retriever-aware workflow, OCR freshness-check rules, and streamlined session-summary policy.
+  - 2025-09-20: v2 added maintenance ruleset.
+  - 2025-09-20: v1 initial creation.
+version: v3   # optional, non-canonical
+---
+
+# Jewel Minting Protocol v3 — Retriever-aware & Freshness Rules
+
+**Purpose:**  
+Lightweight, repeatable method for distilling chat sessions into persistent "jewels," with explicit support for (a) file-based workflows and (b) vector-retriever workflows (Weaviate). Includes freshness-check rules for ensuring sessions use the latest jewel versions.
+
+---
+
+## Core Steps (short)
+
+1. **Initiate Session with Intent**
+   - State purpose and label session category early (e.g., Rabbi, Navigator, Builder).
+
+2. **Dialog as Forge**
+   - Explore openly; note candidates for minting. Tag potential anchor points inline (e.g., `<<mint_candidate: short label>>`).
+
+3. **Identify Jewel Trigger**
+   - Ask: what durable concept is worth compressing?
+
+4. **Synthesize Jewel**
+   - Minimal markdown: Purpose, Scope, Core Principles/Checklist, Template/Heuristics, Changelog.
+   - File naming: `ANCHOR_[Label]_lowloss_YYYYMMDDThhmmssZ.txt`
+
+5. **Mint & Store**
+   - Save jewel to persistent store (filesystem or vector DB). Include internal metadata header with label, timestamp, type, and short summary (1–2 lines).
+
+6. **Session Freshness & Ingest Rules**
+
+### A. If **no retriever** connected (file-based)
+- At session start, optionally provide a screenshot or directory listing of jewel filenames.
+- Assistant will OCR / parse filenames to extract label + timestamp.
+- Assistant compares those to jewels already ingested in-session and reports deltas:
+  - `Current` = jewels already ingested
+  - `Available` = canonical files detected in the provided listing
+  - `Action` = list of jewels with newer timestamps (request re-ingest) or confirm up-to-date
+- If no screenshot is provided, assistant assumes previously ingested jewels are current (user responsibility).
+
+### B. If **retriever (Weaviate) connected**
+- At session start assistant will run:
+  1. `retrieve(label_or_query, top_k=N, filter_by_type=...)` to fetch candidate jewels.
+  2. Compare fetched jewel timestamps/filenames to session memory's ingested jewels.
+  3. Auto-ingest newer versions (or present the user with a concise delta to accept) — default: auto-ingest if timestamps differ and the user previously authorized auto-updates in preferences.
+- Metadata stored in vector DB should include: filename, label, timestamp, type, short summary, and changelog pointer (URL or file id).
+
+7. **Maintenance Output Rules (when Protocol ingested)**
+- At session close or on request, produce a **Session Summary** (not a duplicate full index):
+  - Line: `Jewels created: X (Label1, Label2, ...) | Jewels ingested: Y (LabelA, LabelB, ...)`
+  - If requested, expand to two concise tables (created / ingested) with entries in this format:
+    - Label | Filename | Date | Type | 1–2 sentence summary (created)  
+    - Label | Filename | Date | Type | Ingest purpose (ingested)
+- The assistant should *not* require users to maintain per-session full lists if the retriever is available; it may instead present an on-demand delta report.
+
+8. **Versioning & Changelog Policy**
+- Jewels should carry incremental changelog entries with ISO dates and short notes. Superseded jewels must be marked `retired: YYYY-MM-DD` in their header.
+
+9. **Security & Access**
+- Keep private jewels in protected storage. When using retriever connectors, ensure API keys and access tokens are managed externally by the user.
+
+---
+
+## Templates & Metadata (copy/paste)
+
+**Jewel Header (top of file):**
+```
+---
+label: Rabbi
+filename: ANCHOR_Rabbi_lowloss_YYYYMMDDThhmmssZ.txt
+timestamp: YYYY-MM-DDThh:mm:ssZ
+type: knowledge_sharing
+summary: Short 1-2 sentence description.
+changelog:
+  - YYYY-MM-DD: created.
+---
+```
+
+**Session Summary (single-line compact):**
+```
+Jewels created: 1 (Rabbi) | Jewels ingested: 2 (Protocol, Index)
+```
+
+---
+
+<<< END JEWEL Protocol 2025-09-20T08:17:01Z >>>

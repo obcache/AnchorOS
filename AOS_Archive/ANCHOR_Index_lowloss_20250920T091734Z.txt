@@ -1,0 +1,51 @@
+<<< BEGIN JEWEL Index 2025-09-20T09:17:34Z >>>
+---
+label: Index
+filename: ANCHOR_Index_lowloss_20250920T091734Z.txt
+timestamp: 2025-09-20T09:17:34Z
+type: catalog
+summary: Scaffold for maintaining a cross-referenced table of jewels with metadata and links.
+changelog:
+  - 2025-09-20T09:17:34Z: updated to include JewelSpec v0.1 entry.
+  - 2025-09-20: v2 demarcated version created for alignment with Protocol v4 standards.
+  - 2025-09-20: v1 initial creation.
+version: v3   # optional, non-canonical
+---
+
+# Jewel Index Scaffold
+
+**Purpose:**  
+Provide a lightweight, modular way to track, cross-reference, and retrieve jewels minted across sessions.
+
+---
+
+## Table of Jewels
+
+| Jewel Label      | Filename                                               | Date Created | Type                 | Summary                                                                 | Cross-Links            |
+|------------------|--------------------------------------------------------|--------------|----------------------|-------------------------------------------------------------------------|------------------------|
+| Rabbi            | ANCHOR_Rabbi_lowloss_20250920T084530Z.txt              | 2025-09-20   | Knowledge Sharing    | Guide for selecting/sharing factual, engaging educational content.      | Protocol, Index        |
+| Protocol         | ANCHOR_Protocol_v4_lowloss_20250920T085454Z.txt        | 2025-09-20   | Workflow             | Retriever-aware minting protocol with freshness and file embedding.     | Rabbi, Index           |
+| TimelessWorkflow | ANCHOR_TimelessWorkflow_lowloss_20250920T085454Z.txt   | 2025-09-20   | Metaphorical Knowledge| Wavefunction ↔ neural net metaphor for time.                            | Rabbi, Protocol        |
+| Index            | ANCHOR_Index_lowloss_20250920T085535Z.txt              | 2025-09-20   | Catalog              | Cross-referenced jewel catalog.                                         | Protocol, Rabbi        |
+| GrantProtocol    | ANCHOR_GrantProtocol_lowloss_20250920T091412Z.txt      | 2025-09-20   | Research Protocol    | Hypothesis/control framework for jewel evaluation.                      | Protocol, Index        |
+| JewelSpec        | ANCHOR_JewelSpec_v0.1_lowloss_20250920T091703Z.txt     | 2025-09-20   | Specification        | Canonical rules for jewel structure, naming, transfer, and ingestion.   | Protocol, Index, Rabbi |
+
+---
+
+## Update Workflow
+1. **Mint Jewel** → generate jewel text file as usual.  
+2. **Log Entry** → add a row with filename, date, type, short summary.  
+3. **Cross-Link** → connect to related jewels for navigation.  
+4. **Save/Commit** → update the Index file in persistent store.  
+
+---
+
+## Principles
+- **Flat File, Append-Only** → simple to maintain.  
+- **Human + Machine Friendly** → table format is parseable but readable.  
+- **Cross-Linking** → weave jewels into a usable web, not just a pile.  
+- **Resilient** → each jewel still self-contained even if index lost.  
+
+---
+
+<<< END JEWEL Index 2025-09-20T09:17:34Z >>>

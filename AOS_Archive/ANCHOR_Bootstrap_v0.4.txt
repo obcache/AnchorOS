@@ -1,0 +1,21 @@
+ANCHOR Capsule Handshake v1.0
+------------------------------------------------------------
+Capsule: ANCHOR_Bootstrap_v0.4.txt
+Version: v0.4
+Role: core
+Expected-Caller: manifest
+Expected-Sequence: 1-bootstrap
+
+if (caller != "manifest") or (caller_sequence != "1-bootstrap"):
+    reject_ingest("Handshake violation: unauthorized or out-of-sequence load.")
+else:
+    confirm_ingest("Handshake verified: capsule accepted.")
+------------------------------------------------------------
+
+# ANCHOR_Bootstrap
+
+## v0.4
+- BIOS-level loader that reads manifest, validates required capsules, and
+  invokes init sequence in enforced order.
+- Registers CLI from manifest prior to init.
+- On failure, reports missing capsules and halts.

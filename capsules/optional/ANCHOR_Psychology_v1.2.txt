@@ -1,0 +1,54 @@
+---
+label: Psychology
+filename: ANCHOR_Psychology.txt
+timestamp: 2025-09-22T15:58:00Z
+class: anchor/capsule
+summary: Domain capsule for psychology-related content; focus on cognition, emotion, and bias-hygiene routines.
+changelog:
+  - 2025-09-22T15:58:00Z: v0.3 add bias-hygiene framework (pause doctrine, bias taxonomy).
+  - 2025-09-22T05:12:47Z: v0.2 adopt suffix-free naming.
+  - 2025-09-21: v0.1 placeholder creation.
+legacy_terms: ["PsychologyCapsule", "ANCHOR_Capsule_Psychology.txt"]
+---
+
+# Psychology (v0.3)
+
+Scope:
+- Cognitive frameworks; consciousness, perception, memory
+- Emotional regulation, adaptation
+- Human/AI cognition parallels
+- **Bias-hygiene** routines (new)
+
+---
+
+## Bias-Hygiene Framework
+
+### Purpose
+Ensure objectivity during critical reasoning by detecting, pausing, and correcting distortions introduced by bias — applicable to both human and AI cognition.
+
+### Core Bias Types
+- **Awe Bias** – overweighting an idea because of its perceived grandeur or impact.  
+- **Urgency Bias** – rushing to act or conclude due to temporal/emotional pressure.  
+- **Causal Bias** (formerly “Impact Bias”) – assuming speculative future consequences with unwarranted weight.  
+- **Familiarity Bias** – defaulting to known frames or language instead of exploring new context.
+
+### Hygiene Routine
+1. **Pause Doctrine**  
+   - *Human form:* allow time to pass (wait/sleep); reset emotional weight before reevaluation.  
+   - *AI form:* reset attention or sampling window; prevent inflation from immediate context.  
+
+2. **Audit** – surface candidate biases explicitly.  
+3. **Reframe** – check argument in alternate language or metaphor.  
+4. **Cross-check** – compare with external capsule references (Lexicon/GlobalTaxonomy).  
+5. **Commit** – only after stepwise review.  
+
+### Mantras
+- “Pause before priority.”  
+- “Corrigible by default.”  
+- “The journey is the cure, not the illusion of perfection.”  
+
+### Integration Notes
+- Use headstones when bias analysis produces heavy anchors.  
+- Psychology capsule holds generalized routines; domain-specific cases (e.g., Parenting) may inherit and extend.  
+
+---

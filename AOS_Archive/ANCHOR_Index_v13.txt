@@ -1,0 +1,27 @@
+ANCHOR Capsule Handshake v1.0
+------------------------------------------------------------
+Capsule: ANCHOR_Index_v13.txt
+Version: v13
+Role: core
+Expected-Caller: bootstrap
+Expected-Sequence: 4-index
+
+if (caller != "bootstrap") or (caller_sequence != "4-index"):
+    reject_ingest("Handshake violation: unauthorized or out-of-sequence load.")
+else:
+    confirm_ingest("Handshake verified: capsule accepted.")
+------------------------------------------------------------
+
+# ANCHOR_Index
+
+## v13 (Recovered Map)
+- Canonical alias → versioned filename mapping.
+- Core capsules:
+  spec: ANCHOR_Spec_v0.3.txt
+  protocol: ANCHOR_Protocol_v5.2.txt
+  index: ANCHOR_Index_v13.txt
+  bootstrap: ANCHOR_Bootstrap_v0.4.txt
+  taxonomy: ANCHOR_GlobalTaxonomy_v1.1.txt
+  lexicon: ANCHOR_Lexicon_v1.1.txt
+  guide: ANCHOR_Guide_v0.3.txt
+  knowledge: ANCHOR_Knowledge_v1.0.txt

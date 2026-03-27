@@ -1,0 +1,131 @@
+<<< BEGIN JEWEL JewelSpec 2025-09-20T09:17:03Z >>>
+---
+label: JewelSpec
+filename: ANCHOR_JewelSpec_v0.1_lowloss_20250920T091703Z.txt
+timestamp: 2025-09-20T09:17:03Z
+type: specification
+summary: Canonical specification v0.1 for jewel structure, naming, transfer, and ingestion.
+changelog:
+  - 2025-09-20T09:17:03Z: v0.1 initial creation.
+version: v0.1
+---
+
+# Jewel Specification v0.1
+
+**Purpose:**  
+Define the canonical rules for creating, naming, transferring, and ingesting jewels.  
+This enables interoperability, sharing, and collective reduction of redundant effort.
+
+---
+
+## 1. File Naming Convention
+- Format: `ANCHOR_[Label]_lowloss_YYYYMMDDThhmmssZ.txt`  
+- Elements:  
+  - `ANCHOR_` → required prefix  
+  - `[Label]` → concise human-readable identifier (no spaces; CamelCase recommended)  
+  - `_lowloss_` → denotes low-loss compression intent  
+  - `YYYYMMDDThhmmssZ` → UTC timestamp (ISO 8601, Zulu time)  
+  - `.txt` → plain text file extension  
+
+Filenames are **authoritative** for jewel identity. Timestamps guarantee uniqueness.
+
+---
+
+## 2. Demarcation Markers
+Each jewel must be enclosed by begin/end markers:  
+
+```
+<<< BEGIN JEWEL [Label] [Timestamp: YYYY-MM-DDThh:mm:ssZ] >>>
+... content ...
+<<< END JEWEL [Label] [Timestamp: YYYY-MM-DDThh:mm:ssZ] >>>
+```
+
+- Begin marker includes jewel label and timestamp.  
+- End marker must repeat both exactly.  
+- These markers are the **true integrity authority** across systems.  
+
+---
+
+## 3. Metadata Header
+Each jewel must start with a YAML block between `---` fences containing:  
+
+```
+---
+label: <short label>
+filename: ANCHOR_<Label>_lowloss_YYYYMMDDThhmmssZ.txt
+timestamp: YYYY-MM-DDThh:mm:ssZ
+type: <workflow | knowledge_sharing | catalog | metaphorical | research_protocol | specification | other>
+summary: 1–2 sentence description
+changelog:
+  - YYYY-MM-DD: note
+version: vN   # optional, non-canonical
+---
+```
+
+- `filename` and `timestamp` must match the file and marker.  
+- `version` is optional; **timestamp is canonical**.  
+
+---
+
+## 4. Content Body
+- Markdown formatted.  
+- Sections vary by jewel type (e.g., Rabbi, Protocol, Index).  
+- Must be clear, portable, and low-ceremony.  
+- Should contain templates or heuristics where appropriate.  
+
+---
+
+## 5. Protocol Enforcement
+- **Protocol jewel** defines evolving standards.  
+- When Protocol updates structure/naming rules, all jewels in use must be regenerated to comply.  
+- Index jewel must be updated to reflect new versions.  
+
+---
+
+## 6. Transfer & Ingestion
+- Jewels are shareable as plain text files.  
+- Begin/end markers + timestamp enable safe parsing even when copy/pasted into chat.  
+- Ingestion requires verifying markers and header consistency.  
+- Freshness checks compare timestamps in-session vs. canonical store.  
+
+---
+
+## 7. Indexing & Retrieval
+- Index jewel maintains cross-referenced table of jewels.  
+- Retriever DB (e.g., Weaviate) stores jewels with:  
+  - text payload (body between markers)  
+  - vector embedding  
+  - metadata (label, filename, timestamp, type, summary, importance_score, durability, provenance)  
+- Supports semantic and keyword retrieval.  
+
+---
+
+## 8. Session Workflow Integration
+- Initiator jewel defines new session metadata (name, tagline, intent, tags).  
+- InitiatorPrompter jewel guides stepwise user input.  
+- Rabbi jewel encodes heuristics for teaching/knowledge sharing.  
+- Protocol jewel governs compliance.  
+- GrantProtocol jewel formalizes research experiments.  
+- Index jewel links them.  
+
+---
+
+## 9. Governance & Community
+- Jewels are portable, remixable modules.  
+- Communities may publish/share libraries of jewels.  
+- Forking and remixing is encouraged; changelogs must note derivation.  
+- Future versions of JewelSpec will codify interoperability layers (e.g., JSON export).  
+
+---
+
+## 10. Principles
+- **Low Ceremony** — simple text, minimal overhead.  
+- **Low Loss** — compress essence without redundancy.  
+- **Deterministic Keys** — timestamped filenames ensure uniqueness.  
+- **Integrity First** — markers + header = trust boundary.  
+- **Scalable** — works for 5 jewels or 500.  
+- **Composable** — jewels act as modular soft plug-ins.  
+
+---
+
+<<< END JEWEL JewelSpec 2025-09-20T09:17:03Z >>>

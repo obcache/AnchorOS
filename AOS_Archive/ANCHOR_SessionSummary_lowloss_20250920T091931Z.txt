@@ -1,0 +1,49 @@
+<<< BEGIN JEWEL SessionSummary 2025-09-20T09:19:31Z >>>
+---
+label: SessionSummary
+filename: ANCHOR_SessionSummary_lowloss_20250920T091931Z.txt
+timestamp: 2025-09-20T09:19:31Z
+type: session_log
+summary: Summary of jewels created, updated, and ingested during the session on jewel system development.
+changelog:
+  - 2025-09-20T09:19:31Z: v1 initial creation.
+version: v1   # optional, non-canonical
+---
+
+# Session Summary Jewel — 2025-09-20
+
+**Purpose:**  
+Capture a compact log of jewel activity for this session, preserving continuity and cross-referencing.
+
+---
+
+## Jewels Created / Updated
+- **Rabbi** → ANCHOR_Rabbi_lowloss_20250920T084530Z.txt (retrofitted with demarcation markers).  
+- **Protocol v3** → ANCHOR_Protocol_v3_lowloss_20250920T081701Z.txt (first demarcated).  
+- **Protocol v4** → ANCHOR_Protocol_v4_lowloss_20250920T085454Z.txt (demarcated, updated with regeneration rules).  
+- **TimelessWorkflow** → ANCHOR_TimelessWorkflow_lowloss_20250920T085454Z.txt (retrofitted, demarcated).  
+- **Index v3** → ANCHOR_Index_lowloss_20250920T091734Z.txt (updated with JewelSpec entry).  
+- **Initiator** → ANCHOR_Initiator_lowloss_20250920T085856Z.txt (new, session kickoff template).  
+- **GrantProtocol** → ANCHOR_GrantProtocol_lowloss_20250920T091412Z.txt (research study design).  
+- **JewelSpec v0.1** → ANCHOR_JewelSpec_v0.1_lowloss_20250920T091703Z.txt (canonical specification).  
+- **SessionSummary** → ANCHOR_SessionSummary_lowloss_20250920T091931Z.txt (this file).  
+
+## Jewels Ingested
+- **TimelessWorkflow** (pre-demarcation, then updated).  
+- **Protocol (earlier version, then updated to v4).**  
+
+---
+
+## Notes
+- Protocol v4 rule established: when structure/format changes, all jewels in-session must be regenerated for compliance.  
+- Index now cross-links JewelSpec v0.1, making the ecosystem self-describing.  
+- Next steps: configure Weaviate DB for internet accessibility to allow automated retrieval and freshness checks.  
+
+---
+
+**Closing Line:**  
+`Jewels created: 7 (Rabbi, Protocol v3, Protocol v4, TimelessWorkflow, Index v3, Initiator, GrantProtocol, JewelSpec v0.1) | Jewels ingested: 2 (TimelessWorkflow, Protocol)`
+
+---
+
+<<< END JEWEL SessionSummary 2025-09-20T09:19:31Z >>>

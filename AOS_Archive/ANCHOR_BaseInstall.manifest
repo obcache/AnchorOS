@@ -1,0 +1,43 @@
+ANCHOR Capsule Handshake v1.0
+------------------------------------------------------------
+Capsule: ANCHOR_BaseInstall.manifest
+Version: v1.6
+Role: core
+Timestamp: 2025-10-07T19:26:27Z
+
+# Manifest Overview
+The manifest is BIOS-level authority. It may be provided ad-hoc.
+On ingest it verifies completeness and readiness for init.
+
+# Completeness Check (pseudo)
+if missing_required_capsules:
+  display("⚠️ Missing base capsules:"); list(missing)
+else:
+  display("✅ AnchorOS ready to initialize."); display("Run '| anchor init'")
+
+# Required Capsules (with hashes)
+- ANCHOR_Spec_v0.3.txt  sha256=cde602a5b82cb560c1337283e8ed463a8b6fde6ed1b1728d8e8a96750e351775
+- ANCHOR_Protocol_v5.2.txt  sha256=6ba01e7b26435713e51a4419044904823ddd15fff0211b43fc00f270ee7e4086
+- ANCHOR_Index_v13.txt  sha256=50451eaa46b344e906ce6ab216967cab8b3b96f736b6d003599205196baab700
+- ANCHOR_Bootstrap_v0.4.txt  sha256=9161dceadaddcb2feb47c5da6cbd956e723bdd749071a26f66ed418ee2e26fb9
+- ANCHOR_GlobalTaxonomy_v1.1.txt  sha256=a4346e243b598b7212cbf1657d4a66a55fdfcf30e52cb9d30e48c746c63c7f80
+- ANCHOR_Lexicon_v1.1.txt  sha256=3a20c5e7055cdfb8fe0b3c506cb307be17d95ae6520e017ce0a872e8de83c690
+- ANCHOR_Guide_v0.3.txt  sha256=b64f920fa219b8ef64e732a834b679760b9813cffe3255100c0853b163a40abe
+- ANCHOR_Knowledge_v1.0.txt  sha256=f9e384332402aa5baa1ed4721a54bf3d0c628623612994bed75dcdafa8de536b
+
+# Optional Capsules (declared, not bundled here)
+- ANCHOR_ModuleRegistry_v0.2.txt
+- ANCHOR_Psychology_v1.1.txt
+- ANCHOR_Studies_v1.0.txt
+- ANCHOR_Science_v1.0.txt
+- ANCHOR_Esoterica_v1.0.txt
+
+# Embedded CLI (authoritative)
+anchor init
+anchor capsule commit base
+anchor capsule commit all
+anchor capsule get <capsuleName>
+anchor capsule get all
+anchor snapshot
+anchor stop | quit
+anchor help
