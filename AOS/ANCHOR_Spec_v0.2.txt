@@ -1,0 +1,82 @@
+<<< BEGIN ANCHOR AnchorSpec v0.2 >>>
+---
+label: AnchorSpec
+filename: ANCHOR_Spec_v0.2.txt
+timestamp: 2025-09-20T00:00:00Z
+class: anchor/spec
+summary: Canonical rules for Anchor taxonomy, structure, naming, transfer, and ingestion.
+changelog:
+  - 2025-09-20: v0.2 rename from JewelSpec; adopt Anchor-root taxonomy; add class field.
+  - 2025-09-20: v0.1 initial (as JewelSpec)
+---
+
+# 1) Purpose
+Define the canonical, **Anchor-rooted** taxonomy and file/metadata rules so artifacts remain portable, parseable, and composable.
+
+# 2) Taxonomy (root → subclasses)
+Root: **Anchor**
+
+Subclasses (pragmatic names, with legacy aliases):
+- **anchor/capsule** (legacy: “jewel”) – compact, low-loss summary artifacts.
+- **anchor/marker** (poetic alias: “tombstone”) – non-inflating reference points.
+- **anchor/protocol** – workflow rules.
+- **anchor/spec** – specifications & schemas.
+- **anchor/index** – catalogs / registries.
+- **anchor/log** – session logs, ingestion reports.
+- **anchor/prompter** – guided forms / stepwise prompts.
+- **anchor/conceptual** (alias: “metaphor”) – symbolic/poetic anchors.
+- **anchor/study** (alias: “research”) – hypotheses, test plans, grant protocols.
+
+# 3) Filenames
+- **Stable filenames** preferred (Git-friendly). Examples:
+  - `ANCHOR_Capsule_<Label>.txt`
+  - `ANCHOR_Marker_<Label>.txt`
+  - `ANCHOR_Protocol_v5.txt`
+  - `ANCHOR_Spec_v0.2.txt`
+  - `ANCHOR_Index.txt`, `ANCHOR_Log_<Label>.txt`, `ANCHOR_Prompter_<Label>.txt`
+- Timestamps belong in the YAML header (`timestamp:`), not in filenames.
+- Legacy timestamped files remain valid; index may hold both names during migration.
+
+# 4) Demarcation markers
+```
+<<< BEGIN ANCHOR [Label] [Timestamp: YYYY-MM-DDThh:mm:ssZ] >>>
+... content ...
+<<< END ANCHOR [Label] [Timestamp: YYYY-MM-DDThh:mm:ssZ] >>>
+```
+
+# 5) Metadata header (YAML)
+Required keys:
+```
+label: <short label>
+filename: <stable filename>
+timestamp: YYYY-MM-DDThh:mm:ssZ
+class: anchor/<subclass>
+summary: 1–2 sentence description
+changelog:
+  - YYYY-MM-DD: note
+legacy_terms: [optional list, e.g., "jewel","tombstone"]
+```
+
+# 6) Content body
+Markdown; sections vary by class. Keep low-ceremony, high clarity. Include templates/heuristics where useful.
+
+# 7) Transfer & ingestion
+- Plain text; markers + header are the trust boundary.
+- Ingestion verifies markers/header consistency.
+- Freshness by header timestamp and/or Git commit metadata.
+
+# 8) Indexing & retrieval
+- Index stores: label, filename, timestamp, class, summary, importance, durability, provenance.
+- Vector DB stores text + metadata; semantic + keyword retrieval supported.
+
+# 9) Compatibility
+- Tools must recognize `legacy_terms`, mapping “jewel” → `anchor/capsule`, “tombstone” → `anchor/marker`.
+
+# 10) Terminology Governance
+- Field-standard terminology takes precedence in filenames, headers, and protocol references.
+- Poetic or ad-hoc terms may be included in `legacy_terms` or `alias` fields for continuity.
+- Improvised metaphors should not be promoted to root namespace unless explicitly elevated by author intent.
+- Root namespace (`Anchor`) remains neutral and structural. Subclasses use widely recognizable terms (capsule, marker, protocol, etc.).
+- Exception: in core creative work, author has license to elevate metaphors to primary labels; when this occurs, note it explicitly in `changelog` and `summary`.
+
+<<< END ANCHOR AnchorSpec v0.2 >>>

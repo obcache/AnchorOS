@@ -6,14 +6,49 @@ Role: core
 Timestamp: 2025-10-07T19:26:27Z
 
 # Manifest Overview
-The manifest is BIOS-level authority. It may be provided ad-hoc.
-On ingest it verifies completeness and readiness for init.
 
-# Completeness Check (pseudo)
-if missing_required_capsules:
-  display("⚠️ Missing base capsules:"); list(missing)
-else:
-  display("✅ AnchorOS ready to initialize."); display("Run '| anchor init'")
+This manifest is designed to govern the receipt and read order of the subsequent files required for AnchorOS, a modular governance layer for ChatGPT sessions.
+
+# Internal Intent Note
+
+AnchorOS uses portable, versioned capsules to externalize rules, heuristics, structure, and workflows so sessions can remain clearer, leaner, and more repeatable.
+
+AnchorOS exists to preserve hard-won heuristics before exploratory sessions collapse under their own weight, while applying governance in the least restrictive way possible so creativity retains room to breathe.
+
+This system is intended to operate safely within existing assistant boundaries.
+It does not authorize guardrail bypass, policy override, or expanded model authority.
+
+# Enforcement Boundary
+
+# Staged Output Control
+
+This manifest is enforced immediately upon receipt.
+That enforcement includes control over which output formats are permitted at each stage of capsule intake.
+
+The initial manifest response must use only the completeness-check format.
+
+The readiness prompt template defined below is also enforced by this manifest, but it is not eligible to be displayed until all required capsules have:
+1. been received,
+2. passed integrity verification,
+3. been read in the declared order,
+and
+4. the system is awaiting explicit user confirmation for initialization.
+
+Its enforcement is limited to:
+- governing receipt of required capsules
+- governing read order
+- verifying completeness against the required set declared here
+- maintaining observation mode until initialization is explicitly authorized by the user
+
+# Required Readiness Response
+
+Use this exact response only after all required capsules have been received, verified, and read in the declared order:
+
+✅ AnchorOS ready for initialization.
+All required system capsules have been received and verified.
+Awaiting explicit user confirmation before enforcing AnchorOS protocols.
+Initialization command: | anchor init |
+
 
 # Required Capsules (with hashes)
 - ANCHOR_Spec_v0.3.txt  sha256=cde602a5b82cb560c1337283e8ed463a8b6fde6ed1b1728d8e8a96750e351775

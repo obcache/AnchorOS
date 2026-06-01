@@ -1,0 +1,46 @@
+<<< BEGIN JEWEL InitiatorPrompter 2025-09-20T12:35:27Z >>>
+---
+label: InitiatorPrompter
+filename: ANCHOR_InitiatorPrompter_lowloss_20250920T123527Z.txt
+timestamp: 2025-09-20T12:35:27Z
+type: session_initiation
+summary: Stepwise prompting sequence to capture session name, tagline, intent, scope, and setup details.
+changelog:
+  - 2025-09-20T12:35:27Z: v1 initial creation.
+version: v1
+---
+
+# Initiator Prompter Jewel — Stepwise Session Kickoff
+
+**Purpose:**  
+To guide the user through the structured "Initiator" jewel fields via sequential questioning.  
+This ensures clean taxonomy and complete metadata for each new session.
+
+---
+
+## Prompt Sequence (one-at-a-time)
+
+1. *Session Name* — "What informal name would you like to give this session?"  
+2. *Tagline* — "Give me a one-line hook or tagline for the session."  
+3. *Intent / Objectives* — "List 3–5 primary objectives you want this session to achieve."  
+4. *Out-of-Scope* — "Is there anything this session should explicitly not cover?"  
+5. *Expected Outputs* — "What tangible outputs do you expect (e.g., Rabbi jewel update, playlist, document)?"  
+6. *Primary Topic Area(s)* — "What general domains apply (e.g., knowledge_sharing, design, research)?"  
+7. *Tags* — "What 5–10 stable tags would help organize this session?"  
+8. *Retriever Use* — "Should we link this session to retriever (none, weaviate, other)?"  
+9. *Freshness Policy* — "How should jewel freshness be ensured (OCR delta, auto-retrieve latest, manual confirm)?"  
+10. *Reference Jewels* — "Which jewels should be ingested into this session (list labels/timestamps, or none)?"  
+11. *Milestones* — "Do you want to note any checkpoints or target dates for this session?"  
+12. *Participants / Roles* — "Should we assign any names/roles to this session (optional)?"  
+13. *Success Criteria* — "Define minimal must-haves and stretch goals."  
+14. *Auto-Mint Triggers* — "What conditions should automatically create a new jewel?"  
+
+---
+
+**Closing:**  
+At session end, assistant summarizes as:  
+`Jewels created: (labels) | Jewels ingested: (labels)`
+
+---
+
+<<< END JEWEL InitiatorPrompter 2025-09-20T12:35:27Z >>>

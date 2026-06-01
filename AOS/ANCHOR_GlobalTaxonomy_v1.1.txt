@@ -1,0 +1,20 @@
+ANCHOR Capsule Handshake v1.0
+------------------------------------------------------------
+Capsule: ANCHOR_GlobalTaxonomy_v1.1.txt
+Version: v1.1
+Role: core
+Expected-Caller: index
+Expected-Sequence: 5-taxonomy
+
+if (caller != "index") or (caller_sequence != "5-taxonomy"):
+    reject_ingest("Handshake violation: unauthorized or out-of-sequence load.")
+else:
+    confirm_ingest("Handshake verified: capsule accepted.")
+------------------------------------------------------------
+
+# ANCHOR_GlobalTaxonomy
+
+## v1.1
+- Types: core, optional, domain, support, manifest.
+- Knowledge classified as: core, semi-volatile, epistemic.
+- Manifest classified as: core, authority, bios-level.

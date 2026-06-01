@@ -1,0 +1,22 @@
+<<< BEGIN ANCHOR Science v0.1 >>>
+---
+label: Science
+filename: ANCHOR_Science_v0.1.txt
+timestamp: 2025-09-26T14:26:10.673556Z
+class: anchor/capsule
+summary: Foundational scientific method mappings; systems thinking, falsifiability, reproducibility.
+---
+# ANCHOR Science v0.1
+
+[entries/core.method]
+id: science.core.method
+tags: [science, methodology]
+synopsis:
+  Science as a process: hypothesis → experiment → observation → analysis → revision.
+operator-notes:
+  AnchorOS can align design/iteration loops with the scientific method for rigor.
+design-notes:
+  Map capsules as "hypotheses" that must be tested in operator use before becoming canonical.
+crossrefs:
+  entries/studies.empirical, entries/knowledge.frameworks
+<<< END ANCHOR Science v0.1 >>>

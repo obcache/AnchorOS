@@ -1,0 +1,30 @@
+ANCHOR Capsule Handshake v1.0
+------------------------------------------------------------
+Capsule: ANCHOR_Protocol_v5.2.txt
+Version: v5.2
+Role: core
+Expected-Caller: bootstrap
+Expected-Sequence: 3-protocol
+
+if (caller != "bootstrap") or (caller_sequence != "3-protocol"):
+    reject_ingest("Handshake violation: unauthorized or out-of-sequence load.")
+else:
+    confirm_ingest("Handshake verified: capsule accepted.")
+------------------------------------------------------------
+
+# ANCHOR_Protocol
+
+## Version v5.2
+- Adds response provenance markers `[ANCHOROS:<context>]`.
+- Enforces handshake headers across capsules.
+- Commands:
+  - `| anchor init` (strict by default; `fast` optional)
+  - `| anchor capsule commit base` (base-only bundle)
+  - `| anchor capsule commit all` (full snapshot)
+  - `| anchor snapshot` (alias of commit all)
+  - `| anchor capsule get <name>` / `get all` (re-render downloads)
+  - `| anchor stop` | `| anchor quit`
+
+## Lifecycle
+- `system_state.running` flag controls availability of commands.
+- Dirty flag prompts on quit if uncommitted changes exist.

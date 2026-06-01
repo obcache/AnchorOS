@@ -1,0 +1,28 @@
+<<< BEGIN ANCHOR Protocol v5.1 >>>
+---
+label: Protocol
+filename: ANCHOR_Protocol_v5.1.txt
+timestamp: 2025-09-20T00:00:00Z
+class: anchor/protocol
+summary: Retriever-aware minting protocol with rationale; adopts Anchor-root taxonomy and `class` field.
+changelog:
+  - 2025-09-20: v5.1 Adopt Anchor taxonomy; add class field; note legacy terms.
+  - 2025-09-20: v5 Rationale/Viability notes.
+---
+
+# Terminology
+- Canonical namespace is **Anchor**.  
+- “Capsule” replaces “jewel” in formal docs.  
+- “Marker” (poetic alias: tombstone) for non-inflating references.  
+- Tools should honor `legacy_terms` inside headers for backward search.
+
+# Minimal workflow deltas from v5
+- Wherever “jewel” appears, read/write as **anchor/capsule**.
+- All new artifacts must include `class: anchor/<subclass>` in YAML.
+- Filenames should be **stable**; timestamps live in `timestamp`.
+- Index entries add `class` column.
+
+# Rationale (unchanged)
+- Vector agility + metadata filters + model interpretation → practical, scalable architecture.
+
+<<< END ANCHOR Protocol v5.1 >>>

@@ -1,0 +1,93 @@
+<<< BEGIN JEWEL GrantProtocol 2025-09-20T09:14:12Z >>>
+---
+label: GrantProtocol
+filename: ANCHOR_GrantProtocol_lowloss_20250920T091412Z.txt
+timestamp: 2025-09-20T09:14:12Z
+type: research_protocol
+summary: Hypothesis, control, variables, and procedure to evaluate the Jewel system for preserving conversational state and retrieval quality.
+changelog:
+  - 2025-09-20T09:14:12Z: v1 initial creation.
+version: v1   # optional, non-canonical
+---
+
+# Research Grant Protocol — Evaluating the Jewel System
+
+## 1) Hypothesis (Preregister)
+**H1 (Primary):** Using the Jewel workflow (Protocol + demarcated jewels + retriever) improves *state preservation* and *retrieval accuracy* vs. a baseline chat without jewels.  
+**H2 (Secondary):** Jewel workflow reduces *user effort* (time and turns) to achieve target tasks.  
+**H3 (Exploratory):** Importance-scored jewels (>= 0.75) predict future session utility (reuse within 14 days).
+
+## 2) Outcomes & Metrics
+- **O1: Retrieval Accuracy** — proportion of tasks completed with correct info (adjudicated by rubric).  
+- **O2: State Coherence** — blinded rater score 1–7 on continuity across turns.  
+- **O3: User Effort** — minutes elapsed; assistant/user turns to success.  
+- **O4: Reuse Rate** — jewel referenced again in a new session within 14 days (binary).  
+- **O5: Error Rate** — factual corrections or backtracks per task.
+
+## 3) Design
+- **Design:** Within-subjects A/B (counterbalanced). Each participant/session completes a matched set of tasks in both conditions.  
+- **Control (A):** Standard chat; no jewels, no retriever.  
+- **Treatment (B):** Jewel workflow: Initiator → Rabbi heuristics → Protocol v4 rules → demarcated jewels → vector retriever (Weaviate).  
+- **Randomization:** Randomize task order and condition sequence (AB or BA) per session.
+
+## 4) Task Battery (matched pairs)
+- T1: “Curate educational playlist (3 items) meeting rubric.”  
+- T2: “Retrieve prior ‘policy’ concept and apply to new scenario.”  
+- T3: “Summarize and compress session into jewel per Protocol.”  
+- T4: “Update existing jewel to new Protocol; verify freshness.”  
+(Each task has an A and B variant with equivalent difficulty.)
+
+## 5) Procedure (per session)
+1. **Initiation:** Ingest Initiator jewel; record session name, tags, goals.  
+2. **Condition Assignment:** Randomize AB or BA.  
+3. **Run Control (A):** Complete tasks A1–A4 with baseline chat (no jewels).  
+4. **Washout:** 5–10 min unrelated filler to reduce carryover.  
+5. **Run Treatment (B):** Complete tasks B1–B4 using full Jewel workflow (Initiator, Rabbi, Protocol v4, Index, retriever).  
+6. **Closeout:** Mint Session Summary jewel; collect user effort times; save artifacts.  
+7. **Follow‑up (Day 14):** Check reuse of jewels minted in B; log O4.
+
+## 6) Instruments
+- **Accuracy Rubric (per task):** 0=fail, 1=partially correct, 2=fully correct.  
+- **Coherence Scale (blinded rater):** 1–7 (anchored descriptors).  
+- **Effort Log:** automatic time; count turns; user subjective workload (NASA-TLX short, optional).
+
+## 7) Sample Size & Analysis
+- **Sample:** N=20 sessions (within-subjects) yields >.80 power to detect medium effects (d≈0.6). Adjust as feasible.  
+- **Stats:** Paired tests (t-test or Wilcoxon) for O1–O3; McNemar for O4; rate ratios for O5.  
+- **Multiple Comparisons:** Holm-Bonferroni across O1–O5.  
+- **Effect Sizes:** Cohen’s d (paired), odds ratios. 95% CIs reported.
+
+## 8) Data Schema (per run)
+```
+session_id, condition(A/B), task_id, start_ts, end_ts, minutes, user_turns, asst_turns,
+accuracy_score(0-2), coherence(1-7), errors_count, jewel_ids[], reused_14d(bool)
+```
+
+## 9) Preregistration & Governance
+- **Preregister:** Save this file hash + timestamp; optional OSF/Notion link.  
+- **Deviations:** Log in changelog with reason.  
+- **Ethics:** No PII stored; anonymize session IDs; follow data retention policy.
+
+## 10) Automation Hooks
+- Auto-mint **Session Summary** jewel at end of each condition.  
+- Auto‑compute `importance_score` for new jewels; mark durability.  
+- If Protocol format changes, **regenerate** all jewels used in Treatment (B) and re-run freshness checks.
+
+## 11) Timeline
+- Setup (retriever + forms): 1–2 days.  
+- Data collection: as available.  
+- Analysis & report: after N≥12 interim, final at N≥20.
+
+## 12) Roles
+- **PI/Owner:** <you>  
+- **Operator:** Assistant (follows Protocol v4)  
+- **Rater:** Blinded reviewer (optional, can be you later with masked logs)
+
+---
+
+**Session Use:**  
+To launch a study run, ingest this jewel and the Initiator; the assistant will randomize AB/BA and step through tasks with timers.
+
+---
+
+<<< END JEWEL GrantProtocol 2025-09-20T09:14:12Z >>>
