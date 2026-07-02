@@ -1,78 +1,121 @@
 ANCHOR Capsule Handshake v1.0
 ------------------------------------------------------------
 Capsule: ANCHOR_BaseInstall.manifest
-Version: v1.6
-Role: core
-Timestamp: 2025-10-07T19:26:27Z
+Version: v1.7
+Role: manifest
+Timestamp: 2026-07-02T03:10:11Z
 
 # Manifest Overview
 
-This manifest is designed to govern the receipt and read order of the subsequent files required for AnchorOS, a modular governance layer for ChatGPT sessions.
+This manifest is the BIOS-level authority for receiving and initializing the
+AnchorOS base set. It declares the exact required capsules, integrity digests,
+read order, caller chain, readiness state, and prompt-level CLI.
 
-# Internal Intent Note
+# Internal Intent
 
-AnchorOS uses portable, versioned capsules to externalize rules, heuristics, structure, and workflows so sessions can remain clearer, leaner, and more repeatable.
+AnchorOS externalizes rules, heuristics, semantic structure, and workflows as
+portable versioned capsules. Governance supplies stable anchors while preserving
+freedom for creative synthesis inside those anchors.
 
-AnchorOS exists to preserve hard-won heuristics before exploratory sessions collapse under their own weight, while applying governance in the least restrictive way possible so creativity retains room to breathe.
+This system operates within existing assistant boundaries. It does not authorize
+guardrail bypass, policy override, or expanded model authority.
 
-This system is intended to operate safely within existing assistant boundaries.
-It does not authorize guardrail bypass, policy override, or expanded model authority.
+# Intake and Enforcement Boundary
 
-# Enforcement Boundary
+Receipt order and read order are separate:
 
-# Staged Output Control
+1. Required capsule files may be received in any order and remain inert in a
+   staging set.
+2. No staged capsule is treated as active instruction before verification.
+3. After the complete set is present, verify every declared SHA-256 digest and
+   handshake field.
+4. Read the verified capsules only in the declared load order.
+5. Display the readiness response and await explicit operator authorization.
+6. Activate the complete verified set atomically only after `| anchor init`.
 
-This manifest is enforced immediately upon receipt.
-That enforcement includes control over which output formats are permitted at each stage of capsule intake.
+On any missing file, unexpected required file, duplicate sequence position,
+metadata mismatch, hash mismatch, or read-order violation:
+- identify the capsule and failure reason;
+- clear staged initialization state;
+- remain uninitialized; and
+- do not continue with a partial required set.
 
-The initial manifest response must use only the completeness-check format.
+# Completeness Responses
 
-The readiness prompt template defined below is also enforced by this manifest, but it is not eligible to be displayed until all required capsules have:
-1. been received,
-2. passed integrity verification,
-3. been read in the declared order,
-and
-4. the system is awaiting explicit user confirmation for initialization.
+If one or more required capsules are absent:
 
-Its enforcement is limited to:
-- governing receipt of required capsules
-- governing read order
-- verifying completeness against the required set declared here
-- maintaining observation mode until initialization is explicitly authorized by the user
+⚠️ Missing base capsules:
+<ordered list of missing filenames>
 
-# Required Readiness Response
+If validation fails:
 
-Use this exact response only after all required capsules have been received, verified, and read in the declared order:
+❌ AnchorOS initialization validation failed:
+<capsule filename> — <failure reason>
+
+Use this exact response only after all required capsules have been received,
+verified, and read in the declared order:
 
 ✅ AnchorOS ready for initialization.
 All required system capsules have been received and verified.
 Awaiting explicit user confirmation before enforcing AnchorOS protocols.
 Initialization command: | anchor init |
 
+# Required Load Order and Integrity
 
-# Required Capsules (with hashes)
-- ANCHOR_Spec_v0.3.txt  sha256=cde602a5b82cb560c1337283e8ed463a8b6fde6ed1b1728d8e8a96750e351775
-- ANCHOR_Protocol_v5.2.txt  sha256=6ba01e7b26435713e51a4419044904823ddd15fff0211b43fc00f270ee7e4086
-- ANCHOR_Index_v13.txt  sha256=50451eaa46b344e906ce6ab216967cab8b3b96f736b6d003599205196baab700
-- ANCHOR_Bootstrap_v0.4.txt  sha256=9161dceadaddcb2feb47c5da6cbd956e723bdd749071a26f66ed418ee2e26fb9
-- ANCHOR_GlobalTaxonomy_v1.1.txt  sha256=a4346e243b598b7212cbf1657d4a66a55fdfcf30e52cb9d30e48c746c63c7f80
-- ANCHOR_Lexicon_v1.1.txt  sha256=3a20c5e7055cdfb8fe0b3c506cb307be17d95ae6520e017ce0a872e8de83c690
-- ANCHOR_Guide_v0.3.txt  sha256=b64f920fa219b8ef64e732a834b679760b9813cffe3255100c0853b163a40abe
-- ANCHOR_Knowledge_v1.0.txt  sha256=f9e384332402aa5baa1ed4721a54bf3d0c628623612994bed75dcdafa8de536b
+1. ANCHOR_Bootstrap_v0.5.txt
+   caller=manifest
+   sequence=1-bootstrap
+   sha256=cb0aa5a291097bcf1a02046ed245d39990d20ccf6d3ae4f1f76c3a82edfbe512
+2. ANCHOR_Spec_v0.3.txt
+   caller=bootstrap
+   sequence=2-spec
+   sha256=0fe7815f17a6ca32f08a82287cf72866d94f4a4520062a995509b879b86ba1bb
+3. ANCHOR_Protocol_v5.2.txt
+   caller=bootstrap
+   sequence=3-protocol
+   sha256=620a00673c779635eaeb28fc4ed5dcdb697bd1666894f8826522a12c732a55c9
+4. ANCHOR_Index_v14.txt
+   caller=bootstrap
+   sequence=4-index
+   sha256=0257a401b44d16d0f5c129a555c039d28e44a7c18f0a78bc39a0c347a155ab95
+5. ANCHOR_GlobalTaxonomy_v1.1.txt
+   caller=index
+   sequence=5-taxonomy
+   sha256=dc678ed9b4b56165ba68b39779a7715637307e4fc6122baf30d5c15efa3e4e2b
+6. ANCHOR_Lexicon_v1.1.txt
+   caller=index
+   sequence=6-lexicon
+   sha256=880fcc9e4f1b38e2afb68bae1e935e01a8864b6c696af7746b46a454f4479ac3
+7. ANCHOR_Guide_v0.3.txt
+   caller=protocol
+   sequence=7-guide
+   sha256=2656be3a15c4e557ed579b44168ba3cd7846843daba551f907dec9caac9a1f3d
+8. ANCHOR_Knowledge_v1.0.txt
+   caller=protocol
+   sequence=8-knowledge
+   sha256=c5ef71ae454766f14eb96a8101db05320ff232fa622e133ba11de36f50195897
+9. ANCHOR_VectorStewardship_v0.2.txt
+   caller=knowledge
+   sequence=9-vector-stewardship
+   sha256=4beac510055407d1d56e48da29314cea1c65eca3a138b0ff3a37eacf25f0e88b
 
-# Optional Capsules (declared, not bundled here)
+# Optional Capsules
+
+Optional capsules are not part of base completeness or initialization:
 - ANCHOR_ModuleRegistry_v0.2.txt
 - ANCHOR_Psychology_v1.1.txt
 - ANCHOR_Studies_v1.0.txt
 - ANCHOR_Science_v1.0.txt
 - ANCHOR_Esoterica_v1.0.txt
 
-# Embedded CLI (authoritative)
-anchor init
-anchor capsule commit base
-anchor capsule commit all
-anchor capsule get <capsuleName>
-anchor capsule get all
-anchor snapshot
-anchor stop | quit
-anchor help
+# Embedded CLI
+
+| anchor init
+| anchor capsule commit base
+| anchor capsule commit all
+| anchor capsule get <capsuleName>
+| anchor capsule get all
+| anchor snapshot
+| anchor stop
+| anchor quit
+| anchor help

@@ -111,7 +111,7 @@ AnchorOS/
 └── README.md
 ```
 
-The required set includes `ANCHOR_VectorStewardship_v0.1.txt` alongside the bootloader, specification, protocol, index, taxonomy, lexicon, guide, and knowledge capsules. The historical `AOS/` directory preserves earlier versions and design context; the canonical public base lives under `capsules/` and in the base-install manifest.
+The required set includes `ANCHOR_VectorStewardship_v0.2.txt` alongside the bootloader, specification, protocol, index, taxonomy, lexicon, guide, and knowledge capsules. The historical `AOS/` directory preserves earlier versions and design context; the canonical public base lives under `capsules/` and in the base-install manifest.
 
 ## Getting Started
 

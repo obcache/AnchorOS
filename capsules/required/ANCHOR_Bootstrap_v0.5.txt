@@ -1,0 +1,46 @@
+ANCHOR Capsule Handshake v1.0
+------------------------------------------------------------
+Capsule: ANCHOR_Bootstrap_v0.5.txt
+Version: v0.5
+Role: core
+Expected-Caller: manifest
+Expected-Sequence: 1-bootstrap
+
+if (caller != "manifest") or (caller_sequence != "1-bootstrap"):
+    reject_ingest("Handshake violation: unauthorized or out-of-sequence load.")
+else:
+    confirm_ingest("Handshake verified: capsule accepted.")
+------------------------------------------------------------
+
+# ANCHOR_Bootstrap
+
+## v0.5
+- BIOS-level loader that reads the manifest, validates the complete required
+  set, and invokes initialization in one enforced order.
+- Registers the manifest CLI before initialization but does not activate
+  governed runtime behavior until explicit `| anchor init` authorization.
+- Verifies each capsule's filename, version, role, expected caller, expected
+  sequence, and SHA-256 digest before accepting it.
+- Rejects duplicate sequence positions, missing capsules, unexpected required
+  capsules, hash mismatches, and handshake metadata mismatches.
+- On any failure, reports the failing capsule and reason, clears staged init
+  state, and halts without partial activation.
+
+## Required Load Order
+1. `ANCHOR_Bootstrap_v0.5.txt` — caller: `manifest`
+2. `ANCHOR_Spec_v0.3.txt` — caller: `bootstrap`
+3. `ANCHOR_Protocol_v5.2.txt` — caller: `bootstrap`
+4. `ANCHOR_Index_v14.txt` — caller: `bootstrap`
+5. `ANCHOR_GlobalTaxonomy_v1.1.txt` — caller: `index`
+6. `ANCHOR_Lexicon_v1.1.txt` — caller: `index`
+7. `ANCHOR_Guide_v0.3.txt` — caller: `protocol`
+8. `ANCHOR_Knowledge_v1.0.txt` — caller: `protocol`
+9. `ANCHOR_VectorStewardship_v0.2.txt` — caller: `knowledge`
+
+## Initialization Transaction
+1. Stage all required capsules in observation mode.
+2. Verify the complete set and all integrity metadata.
+3. Read capsules only in the required load order.
+4. Confirm readiness and await explicit operator authorization.
+5. On `| anchor init`, activate the verified set atomically and set
+   `system_state.running = true`.

@@ -1,7 +1,7 @@
 ANCHOR Capsule Handshake v1.0
 ------------------------------------------------------------
-Capsule: ANCHOR_Index_v13.txt
-Version: v13
+Capsule: ANCHOR_Index_v14.txt
+Version: v14
 Role: core
 Expected-Caller: bootstrap
 Expected-Sequence: 4-index
@@ -14,14 +14,19 @@ else:
 
 # ANCHOR_Index
 
-## v13 (Recovered Map)
+## v14
 - Canonical alias → versioned filename mapping.
-- Core capsules:
+- Required core capsules:
+  bootstrap: ANCHOR_Bootstrap_v0.5.txt
   spec: ANCHOR_Spec_v0.3.txt
   protocol: ANCHOR_Protocol_v5.2.txt
-  index: ANCHOR_Index_v13.txt
-  bootstrap: ANCHOR_Bootstrap_v0.4.txt
+  index: ANCHOR_Index_v14.txt
   taxonomy: ANCHOR_GlobalTaxonomy_v1.1.txt
   lexicon: ANCHOR_Lexicon_v1.1.txt
   guide: ANCHOR_Guide_v0.3.txt
   knowledge: ANCHOR_Knowledge_v1.0.txt
+  vector-stewardship: ANCHOR_VectorStewardship_v0.2.txt
+
+The manifest is authoritative for required-set membership, load order, and
+integrity hashes. This Index is authoritative for alias resolution. Any
+disagreement between them is an initialization error; do not infer a repair.
