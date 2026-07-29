@@ -1,9 +1,9 @@
 ANCHOR Capsule Handshake v1.0
 ------------------------------------------------------------
 Capsule: ANCHOR_BaseInstall.manifest
-Version: v1.7
+Version: v1.8
 Role: manifest
-Timestamp: 2026-07-02T03:10:11Z
+Timestamp: 2026-07-29T05:31:00Z
 
 # Manifest Overview
 
@@ -69,11 +69,11 @@ Initialization command: | anchor init |
 2. ANCHOR_Spec_v0.3.txt
    caller=bootstrap
    sequence=2-spec
-   sha256=0fe7815f17a6ca32f08a82287cf72866d94f4a4520062a995509b879b86ba1bb
+   sha256=f04e49186ee61cd8da45af40e0e9b158c24725ca5e462035629f439e02651529
 3. ANCHOR_Protocol_v5.2.txt
    caller=bootstrap
    sequence=3-protocol
-   sha256=620a00673c779635eaeb28fc4ed5dcdb697bd1666894f8826522a12c732a55c9
+   sha256=6ba01e7b26435713e51a4419044904823ddd15fff0211b43fc00f270ee7e4086
 4. ANCHOR_Index_v14.txt
    caller=bootstrap
    sequence=4-index
@@ -81,19 +81,19 @@ Initialization command: | anchor init |
 5. ANCHOR_GlobalTaxonomy_v1.1.txt
    caller=index
    sequence=5-taxonomy
-   sha256=dc678ed9b4b56165ba68b39779a7715637307e4fc6122baf30d5c15efa3e4e2b
+   sha256=a4346e243b598b7212cbf1657d4a66a55fdfcf30e52cb9d30e48c746c63c7f80
 6. ANCHOR_Lexicon_v1.1.txt
    caller=index
    sequence=6-lexicon
-   sha256=880fcc9e4f1b38e2afb68bae1e935e01a8864b6c696af7746b46a454f4479ac3
+   sha256=3a20c5e7055cdfb8fe0b3c506cb307be17d95ae6520e017ce0a872e8de83c690
 7. ANCHOR_Guide_v0.3.txt
    caller=protocol
    sequence=7-guide
-   sha256=2656be3a15c4e557ed579b44168ba3cd7846843daba551f907dec9caac9a1f3d
+   sha256=b64f920fa219b8ef64e732a834b679760b9813cffe3255100c0853b163a40abe
 8. ANCHOR_Knowledge_v1.0.txt
    caller=protocol
    sequence=8-knowledge
-   sha256=c5ef71ae454766f14eb96a8101db05320ff232fa622e133ba11de36f50195897
+   sha256=f9e384332402aa5baa1ed4721a54bf3d0c628623612994bed75dcdafa8de536b
 9. ANCHOR_VectorStewardship_v0.2.txt
    caller=knowledge
    sequence=9-vector-stewardship

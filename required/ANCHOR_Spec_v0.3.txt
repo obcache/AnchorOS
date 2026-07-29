@@ -21,6 +21,19 @@ Contexts: CORE | CAPSULE | PROTOCOL | INFO
 Omission of this marker denotes free-context conversational output.
 
 
+## Canonical Text Serialization
+All AnchorOS text capsules and manifests SHALL be generated and distributed in
+one canonical byte form:
+- Encoding: UTF-8 without a byte-order mark (BOM).
+- Line endings: LF (`\n`) only. CRLF and bare CR line endings are non-canonical.
+- End of file: exactly one final LF newline.
+- Generation: apply canonical serialization before calculating an integrity
+  digest or distributing the file.
+- Verification: calculate SHA-256 over the exact distributed bytes without
+  additional encoding or newline normalization.
+- Mutation: any byte-level change, including newline or encoding conversion,
+  requires recalculating and updating the declared SHA-256 digest.
+
 ## Capsule Integrity
 - Each capsule SHALL include a handshake header (except the manifest).
 - Init order governed by Bootstrap; manifest is BIOS-level authority.

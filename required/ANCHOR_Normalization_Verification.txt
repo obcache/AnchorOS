@@ -1,0 +1,81 @@
+ANCHOR Normalized Base Install — Verification Report
+Generated: 2026-07-29T05:31:00Z
+
+Canonical serialization:
+- UTF-8 without BOM
+- LF line endings only
+- exactly one final LF newline
+- SHA-256 calculated over exact distributed bytes
+
+Files:
+ANCHOR_Bootstrap_v0.5.txt
+  bytes=2044
+  sha256=cb0aa5a291097bcf1a02046ed245d39990d20ccf6d3ae4f1f76c3a82edfbe512
+  utf8_no_bom=yes
+  lf_only=yes
+  exactly_one_final_lf=yes
+ANCHOR_Spec_v0.3.txt
+  bytes=1674
+  sha256=f04e49186ee61cd8da45af40e0e9b158c24725ca5e462035629f439e02651529
+  utf8_no_bom=yes
+  lf_only=yes
+  exactly_one_final_lf=yes
+ANCHOR_Protocol_v5.2.txt
+  bytes=1084
+  sha256=6ba01e7b26435713e51a4419044904823ddd15fff0211b43fc00f270ee7e4086
+  utf8_no_bom=yes
+  lf_only=yes
+  exactly_one_final_lf=yes
+ANCHOR_Index_v14.txt
+  bytes=1133
+  sha256=0257a401b44d16d0f5c129a555c039d28e44a7c18f0a78bc39a0c347a155ab95
+  utf8_no_bom=yes
+  lf_only=yes
+  exactly_one_final_lf=yes
+ANCHOR_GlobalTaxonomy_v1.1.txt
+  bytes=678
+  sha256=a4346e243b598b7212cbf1657d4a66a55fdfcf30e52cb9d30e48c746c63c7f80
+  utf8_no_bom=yes
+  lf_only=yes
+  exactly_one_final_lf=yes
+ANCHOR_Lexicon_v1.1.txt
+  bytes=753
+  sha256=3a20c5e7055cdfb8fe0b3c506cb307be17d95ae6520e017ce0a872e8de83c690
+  utf8_no_bom=yes
+  lf_only=yes
+  exactly_one_final_lf=yes
+ANCHOR_Guide_v0.3.txt
+  bytes=1090
+  sha256=b64f920fa219b8ef64e732a834b679760b9813cffe3255100c0853b163a40abe
+  utf8_no_bom=yes
+  lf_only=yes
+  exactly_one_final_lf=yes
+ANCHOR_Knowledge_v1.0.txt
+  bytes=803
+  sha256=f9e384332402aa5baa1ed4721a54bf3d0c628623612994bed75dcdafa8de536b
+  utf8_no_bom=yes
+  lf_only=yes
+  exactly_one_final_lf=yes
+ANCHOR_VectorStewardship_v0.2.txt
+  bytes=15988
+  sha256=4beac510055407d1d56e48da29314cea1c65eca3a138b0ff3a37eacf25f0e88b
+  utf8_no_bom=yes
+  lf_only=yes
+  exactly_one_final_lf=yes
+ANCHOR_BaseInstall.manifest
+  bytes=4039
+  sha256=81ca8c2a359a0dbde21c887a238e3bc0265e0e24d77d0af3ffe0ad8022c2b6fd
+  utf8_no_bom=yes
+  lf_only=yes
+  exactly_one_final_lf=yes
+
+Manifest digest verification:
+- ANCHOR_Bootstrap_v0.5.txt: PASS (cb0aa5a291097bcf1a02046ed245d39990d20ccf6d3ae4f1f76c3a82edfbe512)
+- ANCHOR_Spec_v0.3.txt: PASS (f04e49186ee61cd8da45af40e0e9b158c24725ca5e462035629f439e02651529)
+- ANCHOR_Protocol_v5.2.txt: PASS (6ba01e7b26435713e51a4419044904823ddd15fff0211b43fc00f270ee7e4086)
+- ANCHOR_Index_v14.txt: PASS (0257a401b44d16d0f5c129a555c039d28e44a7c18f0a78bc39a0c347a155ab95)
+- ANCHOR_GlobalTaxonomy_v1.1.txt: PASS (a4346e243b598b7212cbf1657d4a66a55fdfcf30e52cb9d30e48c746c63c7f80)
+- ANCHOR_Lexicon_v1.1.txt: PASS (3a20c5e7055cdfb8fe0b3c506cb307be17d95ae6520e017ce0a872e8de83c690)
+- ANCHOR_Guide_v0.3.txt: PASS (b64f920fa219b8ef64e732a834b679760b9813cffe3255100c0853b163a40abe)
+- ANCHOR_Knowledge_v1.0.txt: PASS (f9e384332402aa5baa1ed4721a54bf3d0c628623612994bed75dcdafa8de536b)
+- ANCHOR_VectorStewardship_v0.2.txt: PASS (4beac510055407d1d56e48da29314cea1c65eca3a138b0ff3a37eacf25f0e88b)
